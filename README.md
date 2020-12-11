@@ -10,7 +10,7 @@
 
 ## Part 2: Finding Interesting Program Facts through Parsing
 
- boolean variables with length > 3 and are only used without 
+ boolean variables with length > 3 and are only used without !
 ```
 threaded 146
 threaded 167
