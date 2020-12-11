@@ -6,7 +6,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-public class JavaParserTest extends JavaBaseListener{
+public class JavaParserTest extends Java8BaseListener{
 
 	public static void main(String[] args) throws IOException {
 		if(args.length<1)
@@ -15,11 +15,11 @@ public class JavaParserTest extends JavaBaseListener{
 					+"Example: java JavaParserTest Test.java");
 			return;
 		}
-		String inputFile = args[0];
+		String inputFile =args[0];;
     	CharStream input = new ANTLRFileStream(inputFile);
-    	JavaLexer lexer = new JavaLexer(input);
+    	Java8Lexer lexer = new Java8Lexer(input);
     	CommonTokenStream tokens = new CommonTokenStream(lexer);
-    	JavaParser parser = new JavaParser(tokens); //create parser
+    	Java8Parser parser = new Java8Parser(tokens); //create parser
 
     	ParseTree tree = parser.compilationUnit();
     	ParseTreeWalker walker = new ParseTreeWalker(); // create standard walker
@@ -31,8 +31,21 @@ public class JavaParserTest extends JavaBaseListener{
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void enterStatement(JavaParser.StatementContext ctx){
-		System.out.println("enterStatement");
-	    //your code starts here
+	public void enterStatement(Java8Parser.StatementContext ctx){
+		
+		//your code starts here
+		if(ctx.getStart().getText().equals("if")) {
+
+			String candidate = ctx.getChild(0).getChild(2).getText();
+			
+			if (! candidate.contains("!")&& (candidate.length()>3)&&candidate.matches("[a-zA-Z][a-zA-Z0-9_]*")) {
+
+			System.out.println(candidate +" " + ctx.getStart().getLine());
+
+			}
+		}
+		
 	}
+	
+
 }

@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/parma/Desktop/Fall_2020/Wei_Yang/assignment_1/**/*.jar"
+    ]
+}
