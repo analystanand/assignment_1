@@ -19,3 +19,13 @@ bail 272
 notree 277
 printTree 279
 ```
+![Part 2](part_2.png "Part 2")
+
+## Part 3: Rewrite Program Source Code with Parser
+
+Code Before Insertion
+
+![Part 3 before](before.png "Part 3")
+
+Code After Insertion
+![Part 3 before](after.png "Part 3")
